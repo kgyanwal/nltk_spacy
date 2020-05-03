@@ -33,6 +33,6 @@ for tweet in tw.Cursor(api.search,
                            lang = "en").items():
 
     # Write a row to the CSV file. I use encode UTF-8
-    csvWriter.writerow([tweet.date, tweet.text])
-    print (tweet.date, tweet.text)
+    csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+    print (tweet.created_at, tweet.text)
 csvFile.close()
